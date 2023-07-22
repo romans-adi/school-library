@@ -5,12 +5,11 @@ require_relative 'Teacher'
 
 # Create objects
 person1 = Person.new(1, 25)
-student1 = Student.new(2, 16, 'Math Class', 'Alice')
-student2 = Student.new(4, 16, 'Math Class', 'Alice', false)
-Teacher.new(3, 35, 'Science', 'Mr. Smith')
+student1 = Student.new(2, 16, classroom: 'Math Class', name: 'Alice')
+student2 = Student.new(4, 16, classroom: 'Math Class', name: 'Alice', parent_permission: true)
+teacher1 = Teacher.new(3, 35, 'Science', name: 'Mr. Smith')
 
-puts "Can person with ID #{person1.id} and name #{person1.name} use service?"
-
+puts "\nCan person with ID #{person1.id} use service?"
 if person1.can_use_services?
   puts "Yes, the person could use the service, because their age is #{person1.age}."
 elsif person1.instance_variable_get(:@parent_permission)
@@ -20,28 +19,23 @@ else
   puts "No, the person with ID #{person1.id} is too young and has no parents' permission."
 end
 
-puts "Can person with ID #{student1.id} and name #{student1.name} use service?"
+puts "\nWhich classroom student with ID #{student2.id} is from?"
+puts "Student with ID #{student2.id} is from #{student2.classroom}"
 
-if student1.can_use_services?
-  if student1.instance_variable_get(:@parent_permission)
-    puts "Yes, the person with ID #{student1.id} could use the service despite age restriction,
-    because of having parents' permission."
-  else
-    puts "No, the person with ID #{student1.id} is too young and has no parents' permission."
-  end
-else
-  puts "No, the person with ID #{student1.id} is too young and has no parents' permission."
-end
-
-puts "Can person with ID #{student2.id} and name #{student2.name} use service?"
-
+puts "\nCan #{student2.name} use service?"
 if student2.can_use_services?
   if student2.instance_variable_get(:@parent_permission)
-    puts "Yes, the person with ID #{student2.id} could use the service despite age restriction,
+    puts "Yes, #{student2.name} could use the service despite age restriction,
     because of having parents' permission."
   else
-    puts "No, the person with ID #{student2.id} is too young and has no parents' permission."
+    puts "No, #{student2.name} is too young and has no parents' permission."
   end
 else
-  puts "No, the person with ID #{student2.id} is too young and has no parents' permission."
+  puts "No, #{student2.name} is too young and has no parents' permission."
 end
+
+puts "\nID: #{teacher1.id}"
+puts "Name: #{teacher1.name}"
+puts "Age: #{teacher1.age}"
+puts "Specialization: #{teacher1.specialization}"
+puts "Can use services?: #{teacher1.can_use_services?}"
