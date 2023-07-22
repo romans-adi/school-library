@@ -4,7 +4,7 @@ require_relative 'TrimmerDecorator'
 require_relative 'CapitalizeDecorator'
 
 # Create object person with Decorators
-person = Person.new(5, 22, name: 'maximilianus')
+person = Person.new(5, 22, name: 'tyranozaurus')
 person.correct_name
 capitalized_person = CapitalizeDecorator.new(person)
 puts capitalized_person.correct_name
