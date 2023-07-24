@@ -5,8 +5,7 @@ require_relative 'Teacher'
 
 # Create objects
 person1 = Person.new(1, 25)
-student1 = Student.new(2, 16, classroom: 'Math Class', name: 'Alice')
-student2 = Student.new(4, 16, classroom: 'Math Class', name: 'Alice', parent_permission: true)
+student1 = Student.new(4, 16, classroom: 'Math Class', name: 'Alice', parent_permission: true)
 teacher1 = Teacher.new(3, 35, 'Science', name: 'Mr. Smith')
 
 puts "\nCan person with ID #{person1.id} use service?"
@@ -19,19 +18,19 @@ else
   puts "No, the person with ID #{person1.id} is too young and has no parents' permission."
 end
 
-puts "\nWhich classroom student with ID #{student2.id} is from?"
-puts "Student with ID #{student2.id} is from #{student2.classroom}"
+puts "\nWhich classroom student with ID #{student1.id} is from?"
+puts "Student with ID #{student1.id} is from #{student1.classroom}"
 
-puts "\nCan #{student2.name} use service?"
-if student2.can_use_services?
-  if student2.instance_variable_get(:@parent_permission)
-    puts "Yes, #{student2.name} could use the service despite age restriction,
+puts "\nCan #{student1.name} use service?"
+if student1.can_use_services?
+  if student1.instance_variable_get(:@parent_permission)
+    puts "Yes, #{student1.name} could use the service despite age restriction,
     because of having parents' permission."
   else
-    puts "No, #{student2.name} is too young and has no parents' permission."
+    puts "No, #{student1.name} is too young and has no parents' permission."
   end
 else
-  puts "No, #{student2.name} is too young and has no parents' permission."
+  puts "No, #{student1.name} is too young and has no parents' permission."
 end
 
 puts "\nID: #{teacher1.id}"
