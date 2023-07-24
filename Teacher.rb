@@ -1,6 +1,6 @@
 require_relative 'Person'
 
-# Creates class Teacher (extends Person)
+# Create Teacher class
 class Teacher < Person
   attr_reader :specialization
 

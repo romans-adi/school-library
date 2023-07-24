@@ -1,6 +1,6 @@
 require_relative 'Person'
 
-# Creates class Student (extends Person)
+# Create Student class
 class Student < Person
   attr_reader :classroom
 
