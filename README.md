@@ -34,6 +34,7 @@
 - [x] Object-Oriented Design: The project follows object-oriented principles, such as inheritance and encapsulation, to create well-structured and organized code for handling name-related tasks.
 - [x] Enhanced Flexibility and Maintainability: By employing the decorator pattern and an abstract class, the project achieves enhanced flexibility, code reusability, and maintainability when dealing with name-related functionality.
 - [x] Decorator Pattern Implementation: The project utilizes the decorator pattern to dynamically add or modify behavior to Nameable objects. Two specific decorators, TrimmerDecorator and CapitalizeDecorator, are created to preprocess names before validation.
+- [x] Logical connections between classes based on UML diagram
 
 ### Future Features <a name="future-features"></a>
 

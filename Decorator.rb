@@ -1,4 +1,3 @@
-# Create Decorator class
 class Decorator < Nameable
   def initialize(nameable)
     super()
