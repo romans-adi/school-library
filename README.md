@@ -4,7 +4,7 @@
 
 # <a name="about-project"> School Library Management System </a>
 
-
+The School Library App is a console-based application designed to help manage a school library. It allows users to perform various tasks such as listing all books and people, creating new books and people (students or teachers), creating rentals, and listing rentals for a given person ID. The app follows object-oriented principles and employs the decorator pattern to enhance flexibility and code reusability. It provides a user-friendly interface with interactive prompts to guide users through the process of creating books, people, and rentals. The app aims to provide a well-structured and organized solution for managing library resources and rentals efficiently.
 
 <!-- TABLE OF CONTENTS -->
 
