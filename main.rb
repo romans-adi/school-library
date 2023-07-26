@@ -113,7 +113,7 @@ def handle_create_rental(app)
 
   date = prompt_user_for_rental_date
 
-  app.create_rental(date, book, person)
+  app.create_rental(date, person, book)
 
   puts "\nRental created successfully:"
   puts "Book: #{book.title} by #{book.author}"
