@@ -2,7 +2,7 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# <a name="about-project"> School Library </a>
+# <a name="about-project"> School Library Management System </a>
 
 
 
@@ -35,6 +35,7 @@
 - [x] Enhanced Flexibility and Maintainability: By employing the decorator pattern and an abstract class, the project achieves enhanced flexibility, code reusability, and maintainability when dealing with name-related functionality.
 - [x] Decorator Pattern Implementation: The project utilizes the decorator pattern to dynamically add or modify behavior to Nameable objects. Two specific decorators, TrimmerDecorator and CapitalizeDecorator, are created to preprocess names before validation.
 - [x] Logical connections between classes based on UML diagram
+- [x] User Interface Prompts and Interactivity: The application features a user-friendly interface with interactive prompts, allowing users to create books, people, and rentals easily. Users are prompted to select books from a list, select people by ID, and enter rental dates in the desired format (DD-MM-YYYY). The interface provides real-time feedback on successful rental creation, invalid inputs, and missing information.
 
 ### Future Features <a name="future-features"></a>
 
@@ -97,7 +98,7 @@ To run this project locally, follow these steps:
 
 ### Usage <a name="usage"></a>
 
-1. Once the setup is complete, ensure you are still in the directory containing the Morse Decoder files.
+1. Once the setup is complete, ensure you are still in the directory containing the School Library Management System files.
 
 2. To run the app, execute the following command:
 
