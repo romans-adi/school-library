@@ -1,29 +1,26 @@
-<a name="readme-top"></a>
+<!-- TABLE OF CONTENTS -->
+
+## Table of Contents
+
+- [Tech Stack](#tech-stack)
+  - [Key Features](#key-features)
+- [Getting Started](#getting-started)
+  - [Installation](#installation)
+  - [Setup](#setup)
+  - [Usage](#usage)
+  - [Tests](#tests)
+- [Authors](#authors)
+- [Future Features](#future-features)
+- [Contributing](#contributing)
+- [Support](#️support)
+- [Acknowledgments](#acknowledgments)
+- [License](#license)
 
 <!-- PROJECT DESCRIPTION -->
 
 # <a name="about-project"> School Library Management System </a>
 
 The School Library App is a console-based application designed to help manage a school library. It allows users to perform various tasks such as listing all books and people, creating new books and people (students or teachers), creating rentals, and listing rentals for a given person ID. The app follows object-oriented principles and employs the decorator pattern to enhance flexibility and code reusability. It provides a user-friendly interface with interactive prompts to guide users through the process of creating books, people, and rentals. The app aims to provide a well-structured and organized solution for managing library resources and rentals efficiently.
-
-<!-- TABLE OF CONTENTS -->
-
-## Table of Contents
-
-- [Tech Stack](#tech-stack)
-- [Features](#features)
-  - [Key Features](#key-features)
-  - [Future Features](#future-features)
-- [Getting Started](#getting-started)
-  - [Installation](#installation)
-  - [Setup](#setup)
-  - [Usage](#usage)
-  - [Tests](#tests)
-- [Contributing](#contributing)
-- [License](#license)
-- [Acknowledgments](#acknowledgments)
-- [Support](#️support)
-- [Authors](#authors)
 
 <!-- Features -->
 
@@ -36,13 +33,6 @@ The School Library App is a console-based application designed to help manage a 
 - [x] Decorator Pattern Implementation: The project utilizes the decorator pattern to dynamically add or modify behavior to Nameable objects. Two specific decorators, TrimmerDecorator and CapitalizeDecorator, are created to preprocess names before validation.
 - [x] Logical connections between classes based on UML diagram
 - [x] User Interface Prompts and Interactivity: The application features a user-friendly interface with interactive prompts, allowing users to create books, people, and rentals easily. Users are prompted to select books from a list, select people by ID, and enter rental dates in the desired format (DD-MM-YYYY). The interface provides real-time feedback on successful rental creation, invalid inputs, and missing information.
-
-### Future Features <a name="future-features"></a>
-
-- [ ] Database Integration: Implement a database integration to store and preserve data in a persistent manner. Choose a suitable database system and create appropriate tables to store Person, Address, and other relevant data.
-- [ ] Test Driven Development (TDD): Encourage TDD practices, where new features are first defined by writing tests and then implemented to pass those tests. This approach ensures that code changes are well-tested from the start.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- TECH STACK -->
 
@@ -108,6 +98,25 @@ To run this project locally, follow these steps:
 
 4. If you have future features like GUI or interactive mode, follow the specific instructions provided for those features in the app's documentation.
 
+<!-- AUTHORS -->
+
+## Authors <a name="authors"></a>
+
+**Romans S.**
+
+- GitHub: [@romans-adi](https://github.com/romans-adi/)
+- Twitter: [@obj583](https://twitter.com/obj583/)
+- LinkedIn: [Romans Špiļaks](https://www.linkedin.com/in/obj513/)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+### Future Features <a name="future-features"></a>
+
+- [ ] Database Integration: Implement a database integration to store and preserve data in a persistent manner. Choose a suitable database system and create appropriate tables to store Person, Address, and other relevant data.
+- [ ] Test Driven Development (TDD): Encourage TDD practices, where new features are first defined by writing tests and then implemented to pass those tests. This approach ensures that code changes are well-tested from the start.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 <!-- CONTRIBUTING -->
 
 ## Contributing <a name="contributing"></a>
@@ -128,14 +137,6 @@ Feel free to check the [issues page](../../issues/).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- LICENSE -->
-
-## License <a name="license"></a>
-
-This project is [MIT](LICENSE) licensed.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 <!-- SUPPORT -->
 
 ## Support <a name="support"></a>
@@ -153,14 +154,10 @@ We would like to thank the following individuals and projects for their contribu
 
 [Ruby official](https://www.ruby-lang.org/) :  Special thanks to Yukihiro Matsumoto, the creator of the Ruby programming language, for giving us this powerful and elegant tool to build amazing applications. We are also grateful to the Ruby Core Team and the passionate Ruby community for their continuous support and contributions.
 
-<!-- AUTHORS -->
+<!-- LICENSE -->
 
-## Authors <a name="authors"></a>
+## License <a name="license"></a>
 
-**Romans S.**
-
-- GitHub: [@romans-adi](https://github.com/romans-adi/)
-- Twitter: [@obj583](https://twitter.com/obj583/)
-- LinkedIn: [Romans Špiļaks](https://www.linkedin.com/in/obj513/)
+This project is [MIT](LICENSE) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
