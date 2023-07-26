@@ -8,7 +8,6 @@
   - [Installation](#installation)
   - [Setup](#setup)
   - [Usage](#usage)
-  - [Tests](#tests)
 - [Authors](#authors)
 - [Future Features](#future-features)
 - [Contributing](#contributing)
@@ -33,6 +32,8 @@ The School Library App is a console-based application designed to help manage a 
 - [x] Decorator Pattern Implementation: The project utilizes the decorator pattern to dynamically add or modify behavior to Nameable objects. Two specific decorators, TrimmerDecorator and CapitalizeDecorator, are created to preprocess names before validation.
 - [x] Logical connections between classes based on UML diagram
 - [x] User Interface Prompts and Interactivity: The application features a user-friendly interface with interactive prompts, allowing users to create books, people, and rentals easily. Users are prompted to select books from a list, select people by ID, and enter rental dates in the desired format (DD-MM-YYYY). The interface provides real-time feedback on successful rental creation, invalid inputs, and missing information.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- TECH STACK -->
 
@@ -148,7 +149,7 @@ Furthermore, if you would like to get in touch with us, you can find our contact
 
 <!-- ACKNOWLEDGEMENTS -->
 
-## Acknowledgements <a name="acknowledgements"></a>
+## Acknowledgements <a name="acknowledgments"></a>
 
 We would like to thank the following individuals and projects for their contributions and inspiration:
 
