@@ -1,7 +1,10 @@
+require_relative 'Trimmable'
 require_relative 'Decorator'
 
 class TrimmerDecorator < Decorator
+  include Trimmable
+
   def correct_name
-    super[0..9]
+    trim_name(super)
   end
 end
