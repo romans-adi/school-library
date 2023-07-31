@@ -1,137 +1,95 @@
-require_relative 'Book'
-require_relative 'Person'
-require_relative 'Student'
-require_relative 'Teacher'
+require_relative 'lib/interfaces/AppInterface'
+require_relative 'lib/managers/BookManager'
+require_relative 'lib/managers/RentalManager'
+require_relative 'lib/managers/StudentManager'
+require_relative 'lib/managers/TeacherManager'
+require_relative 'lib/handlers/CreateBookHandler'
+require_relative 'lib/handlers/CreatePersonHandler'
+require_relative 'lib/handlers/CreateRentalHandler'
+require_relative 'lib/handlers/MenuHandler'
+require_relative 'lib/handlers/ListPeopleHandler'
+require_relative 'lib/handlers/RentalsForPersonHandler'
 
-class App
+class App < AppInterface
   def initialize
-    @books = []
-    @people = []
-    @rentals = []
+    super
+    @book_manager = BookManager.new
+    @rental_manager = RentalManager.new
+    @student_manager = StudentManager.new
+    @teacher_manager = TeacherManager.new
+    @create_person_handler = CreatePersonHandler.new(self)
+    @create_book_handler = CreateBookHandler.new(self)
+    @create_rental_handler = CreateRentalHandler.new(self)
+    @list_rentals_for_person_handler = RentalsForPersonHandler.new(@rental_manager)
+    @list_people_handler = ListPeopleHandler.new(@student_manager, @teacher_manager)
+    @menu_handler = MenuHandler.new(self)
   end
 
+  # Book
   def create_book(title, author)
-    book = Book.new(title, author)
-    @books << book
-    book
-  end
-
-  def create_rental(date, book, person)
-    rental = Rental.new(date, book, person)
-    @rentals << rental
-    rental
-  end
-
-  @last_assigned_id = 0
-
-  def create_person(params)
-    age = params[:age]
-    type = params[:type].to_s.downcase
-
-    name = params[:name] || 'Unknown'
-
-    if %w[student 1].include?(type)
-      classroom = params[:classroom]
-      parent_permission = params.key?(:parent_permission) ? params[:parent_permission] : age < 18
-      person = Student.new(generate_unique_id, age, classroom: classroom, name: name,
-                                                    parent_permission: parent_permission)
-    elsif %w[teacher 2].include?(type)
-      specialization = params[:specialization]
-      person = Teacher.new(generate_unique_id, age, specialization, name: name, parent_permission: nil)
-    else
-      raise ArgumentError, 'Invalid person type. Use :student (or 1) or :teacher (or 2).'
-    end
-
-    @people << person
-    person
-  end
-
-  def list_all_people
-    list_items(@people)
+    @book_manager.create_book(title, author)
   end
 
   def list_all_books
-    list_items(@books)
-  end
-
-  def list_rentals_for_person(person_id)
-    person = find_person_by_id(person_id)
-    if person
-      rentals_for_person = person.rentals
-      if rentals_for_person.empty?
-        puts "No rentals found for the person with ID #{person_id}."
-      else
-        puts "List of rentals for person with ID #{person_id}:"
-        list_items(rentals_for_person)
-      end
-    else
-      puts "Person with ID #{person_id} not found."
-    end
+    @book_manager.list_all_books
   end
 
   def find_book_by_index(index)
-    @books[index - 1] if index.positive? && index <= @books.length
+    @book_manager.find_book_by_index(index)
   end
 
-  def ask_parent_permission
-    print 'Does the person have parent permission? (Y/n): '
-    permission = gets.chomp.downcase
-    permission == 'y'
+  def handle_create_book
+    @create_book_handler.handle
   end
 
-  def find_person_by_id(person_id)
-    @people.find { |person| person.id == person_id }
+  # Rental
+  def create_rental(date, book, person)
+    @rental_manager.create_rental(date, book, person)
   end
 
-  private
-
-  def list_items(items)
-    if items.empty?
-      puts 'No items available.'
-    else
-      items.each_with_index do |item, index|
-        puts "#{index + 1}. #{item_display_text(item)}"
-      end
-    end
+  def list_all_rentals
+    @rental_manager.list_all_rentals
   end
 
-  def item_display_text(item)
-    case item
-    when Book
-      book_display_text(item)
-    when Student
-      student_display_text(item)
-    when Teacher
-      teacher_display_text(item)
-    when Rental
-      rental_display_text(item)
-    else
-      'Unknown item'
-    end
+  def handle_create_rental
+    @create_rental_handler.handle
   end
 
-  def book_display_text(book)
-    "#{book.title} by #{book.author}"
+  def handle_list_rentals_for_person
+    @list_rentals_for_person_handler.list_rentals_for_person
   end
 
-  def student_display_text(student)
-    parent_permission = student.parent_permission ? 'Yes' : 'No'
-    "#{student.class.name}, Name: #{student.name},  ID: #{student.id}, Age: #{student.age},
-    Parent Permission: #{parent_permission}, Classroom: #{student.classroom}"
+  # Person
+
+  def handle_create_person
+    @create_person_handler.handle
   end
 
-  def teacher_display_text(teacher)
-    can_use_services = teacher.can_use_services? ? 'Yes' : 'No'
-    "[#{teacher.class.name}] Name: #{teacher.name}, ID: #{teacher.id}, Age: #{teacher.age},
-  Can Use Services: #{can_use_services}, Specialization: #{teacher.specialization}"
+  def list_all_people
+    @list_people_handler.list_all_people
   end
 
-  def rental_display_text(rental)
-    "Date: #{rental.date}, #{rental.book.title} by #{rental.book.author}"
+  # Student
+  def create_student(params)
+    @student_manager.create_student(params)
   end
 
-  def generate_unique_id
-    @last_assigned_id ||= 0
-    @last_assigned_id += 1
+  def find_student_by_id(student_id)
+    @student_manager.find_student_by_id(student_id)
+  end
+
+  # Teacher
+  def create_teacher(params)
+    @teacher_manager.create_teacher(params)
+  end
+
+  def find_teacher_by_id(teacher_id)
+    @teacher_manager.find_teacher_by_id(teacher_id)
+  end
+
+  # Menu
+
+  def handle_menu_choice(choice)
+    @menu_handler.handle_choice(choice)
   end
 end
