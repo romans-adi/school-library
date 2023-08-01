@@ -7,6 +7,7 @@ require_relative 'ui/menu_handlers/HandleCreateBook'
 require_relative 'ui/menu_handlers/HandleCreateRental'
 require_relative 'ui/menu_handlers/HandleListRentalsForPerson'
 require_relative 'ui/menu_handlers/ExitHandler'
+require 'json'
 
 class Main
   def initialize(app)
@@ -31,7 +32,6 @@ class Main
     end
   end
 end
-
 app = App.new
 main = Main.new(app)
 main.main

@@ -32,7 +32,12 @@ class ListPeopleHandler
     count = total_people
     people.each do |person|
       count += 1
-      puts "#{count}. #{person_formatter_for(person).display_text(person)}"
+      formatter = person_formatter_for(person)
+      if formatter
+        puts "#{count}. #{formatter.display_text(person)}"
+      else
+        puts "#{count}. Unrecognized person type."
+      end
     end
 
     count - total_people

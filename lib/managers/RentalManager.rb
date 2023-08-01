@@ -6,6 +6,8 @@ class RentalManager
   end
 
   def create_rental(date, book, person)
+    return unless date && book && person
+
     rental = Rental.new(date, book, person)
     @rentals << rental
     rental

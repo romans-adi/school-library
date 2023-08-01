@@ -16,7 +16,9 @@ class BookManager
   end
 
   def find_book_by_index(index)
-    @books[index - 1] if index.positive? && index <= @books.length
+    return nil if index.nil? || index <= 0 || index > @books.length
+
+    @books[index - 1]
   end
 
   def list_items(items)

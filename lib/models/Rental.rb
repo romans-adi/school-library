@@ -11,4 +11,12 @@ class Rental
     book.rentals << self
     person.rentals << self
   end
+
+  def to_hash
+    {
+      'date' => @date,
+      'book' => @book.to_hash, # Include relevant book information using to_hash method
+      'person_id' => @person.id
+    }
+  end
 end
